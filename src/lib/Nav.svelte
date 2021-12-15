@@ -16,13 +16,23 @@ import {session} from '$app/stores';
 
 </script>
 
-{#each routes as link}
-<a class = 'link' href = {link.href}>{link.name}</a> 
-{/each}
+<nav>
+  {#each routes as link}
+  <a class = 'link' href = {link.href}>{link.name}</a> 
+  {/each}
 
-{#if $session.user}
-<button on:click={handleSignOut}>Sign Out</button>
-{:else }
-<a href='/sign-in'>Sign in</a>
-<a href='/sign-up'>Sign up</a>
-{/if}
+  {#if $session.user}
+  <button on:click={handleSignOut}>Sign Out</button>
+  {:else }
+  <a href='/sign-in'>Sign in</a>
+  <a href='/sign-up'>Sign up</a>
+  {/if}
+<nav>
+
+<style>
+nav {
+  background-color: orange;
+  display: flex;
+  gap: 1rem;
+}
+</style>
